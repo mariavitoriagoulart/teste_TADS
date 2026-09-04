@@ -1,11 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Principais comandos do Git</title>
+	<style>
+		:root { --bg: #f5f0ff; --card: #fff; --text: #2e1f47; --muted: #76658f; --accent: #7c3aed; --code: #29183f; }
+		* { box-sizing: border-box; }
+		body { margin: 0; font-family: Arial, sans-serif; color: var(--text); background: var(--bg); line-height: 1.5; }
+		header { padding: 3rem 1rem; text-align: center; color: white; background: linear-gradient(135deg, #8b5cf6, #5b21b6); }
+		header img { width: 96px; height: 96px; object-fit: cover; margin-bottom: 1rem; border: 4px solid #ffffffaa; border-radius: 50%; box-shadow: 0 6px 18px #29183f66; }
+		header h1 { margin: 0 0 .5rem; font-size: clamp(2rem, 5vw, 3.2rem); }
+		header p { margin: 0; opacity: .9; }
+		main { width: min(1100px, 92%); margin: 2rem auto; }
+		.theme-photo { width: 100%; height: 220px; object-fit: cover; margin-bottom: 1.5rem; border-radius: 12px; box-shadow: 0 4px 16px #17203312; }
+		.intro { margin-bottom: 1.5rem; text-align: center; color: var(--muted); }
+		.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+		section { padding: 1.25rem; background: var(--card); border-radius: 12px; box-shadow: 0 4px 16px #17203312; }
+		h2 { margin-top: 0; color: var(--accent); font-size: 1.25rem; }
+		.command { margin: 1rem 0; }
+		code { display: block; padding: .65rem .8rem; overflow-x: auto; color: #d6e4ff; background: var(--code); border-radius: 6px; font-family: Consolas, monospace; }
+		.description { display: block; margin-top: .35rem; color: var(--muted); font-size: .92rem; }
+		footer { margin-top: 2rem; padding: 2.5rem 1rem; text-align: center; color: white; background: #29183f; }
+		footer p { margin: .35rem 0; }
+	</style>
 </head>
 <body>
-    
+	<header>
+		<img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=300&q=80" alt="Código em um computador">
+		<h1>Principais comandos do Git</h1>
+		<p>Um guia rápido para controlar e compartilhar seus projetos.</p>
+	</header>
+
+	<main>
+		<img class="theme-photo" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="Editor com código de um projeto de software" loading="lazy">
+		<p class="intro">Substitua os valores entre <strong>&lt; &gt;</strong> pelas informações do seu projeto.</p>
+		<div class="grid">
+			<section>
+				<h2>Configuração</h2>
+				<div class="command"><code>git config --global user.name "Seu Nome"</code><span class="description">Define seu nome de usuário.</span></div>
+				<div class="command"><code>git config --global user.email "email@exemplo.com"</code><span class="description">Define seu e-mail.</span></div>
+				<div class="command"><code>git config --list</code><span class="description">Exibe as configurações atuais.</span></div>
+			</section>
+
+			<section>
+				<h2>Repositório</h2>
+				<div class="command"><code>git init</code><span class="description">Cria um repositório Git local.</span></div>
+				<div class="command"><code>git clone &lt;url&gt;</code><span class="description">Baixa um repositório remoto.</span></div>
+				<div class="command"><code>git status</code><span class="description">Mostra o estado dos arquivos.</span></div>
+			</section>
+
+			<section>
+				<h2>Alterações</h2>
+				<div class="command"><code>git add &lt;arquivo&gt;</code><span class="description">Adiciona um arquivo à área de preparação.</span></div>
+				<div class="command"><code>git add .</code><span class="description">Adiciona todas as alterações.</span></div>
+				<div class="command"><code>git commit -m "mensagem"</code><span class="description">Registra as alterações.</span></div>
+				<div class="command"><code>git diff</code><span class="description">Visualiza alterações ainda não preparadas.</span></div>
+			</section>
+
+			<section>
+				<h2>Histórico</h2>
+				<div class="command"><code>git log --oneline</code><span class="description">Lista os commits de forma resumida.</span></div>
+				<div class="command"><code>git show &lt;commit&gt;</code><span class="description">Exibe detalhes de um commit.</span></div>
+				<div class="command"><code>git blame &lt;arquivo&gt;</code><span class="description">Mostra quem alterou cada linha.</span></div>
+			</section>
+
+			<section>
+				<h2>Branches</h2>
+				<div class="command"><code>git branch</code><span class="description">Lista as branches locais.</span></div>
+				<div class="command"><code>git switch -c &lt;nome&gt;</code><span class="description">Cria e acessa uma nova branch.</span></div>
+				<div class="command"><code>git switch &lt;nome&gt;</code><span class="description">Acessa uma branch existente.</span></div>
+				<div class="command"><code>git merge &lt;branch&gt;</code><span class="description">Integra uma branch à atual.</span></div>
+			</section>
+
+			<section>
+				<h2>Repositório remoto</h2>
+				<div class="command"><code>git remote -v</code><span class="description">Lista os repositórios remotos.</span></div>
+				<div class="command"><code>git pull</code><span class="description">Baixa e integra alterações remotas.</span></div>
+				<div class="command"><code>git push -u origin &lt;branch&gt;</code><span class="description">Envia commits para o remoto.</span></div>
+			</section>
+
+			<section>
+				<h2>Desfazer alterações</h2>
+				<div class="command"><code>git restore &lt;arquivo&gt;</code><span class="description">Descarta alterações não commitadas.</span></div>
+				<div class="command"><code>git reset HEAD &lt;arquivo&gt;</code><span class="description">Remove um arquivo da área de preparação.</span></div>
+				<div class="command"><code>git revert &lt;commit&gt;</code><span class="description">Cria um commit que desfaz outro commit.</span></div>
+			</section>
+		</div>
+	</main>
+	<footer>
+		<p><strong>Guia rápido de Git</strong></p>
+		<p>Consulte <strong>git help &lt;comando&gt;</strong> para obter mais detalhes.</p>
+		<p>Controle, colabore e compartilhe seus projetos.</p>
+	</footer>
 </body>
 </html>
